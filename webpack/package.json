@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@sentry/browser": "^4.4.2",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
