@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sentry JS Sandbox</title>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'>
+</head>
+<body>
+<script src="https://browser.sentry-cdn.com/4.4.0/bundle.js" crossorigin="anonymous"></script>
+<script>
+Sentry.init({
+  dsn: 'https://934ff8c9005c49aa932af831fef18fd3@sentry.io/1330280',
+  blacklistUrls: ['localhost:5200', '[native code]'],
+});
+</script>
+<iframe id="iframe"></iframe>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const iframe = document.getElementById('iframe');
+  const script = document.createElement('script');
+  script.setAttribute('src', 'http://localhost:5200/app.js');
+  iframe.contentWindow.document.body.appendChild(script);
+});
+</script>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+<p>a</p>
+</body>
+</html>
