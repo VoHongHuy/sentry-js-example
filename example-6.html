@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sentry JS Sandbox</title>
+</head>
+<body>
+<button id="btn">Click Me</button>
+<script src="https://browser.sentry-cdn.com/4.4.0/bundle.js" crossorigin="anonymous"></script>
+<script>
+Sentry.init({
+  dsn: 'https://934ff8c9005c49aa932af831fef18fd3@sentry.io/1330280',
+  ignoreErrors: [
+                // Random plugins/extensions
+                'top.GLOBALS',
+                // See http://stackoverflow.com/questions/4113268/how-to-stop-javascript-injection-from-vodafone-proxy
+                'bmi_SafeAddOnload',
+                'EBCallBackMessageReceived',
+                // See http://toolbar.conduit.com/Developer/HtmlAndGadget/Methods/JSInjection.aspx
+                'conduitPage',
+                 // Network errors such as going offline or being blocked by a proxy
+                'Failed to fetch',
+                'Cannot read property \'indexOf\' of undefined',
+                'JSON.stringify cannot serialize cyclic structures.',
+                'Cannot read property \'offset\' of null',
+                'Script error.',
+            ],
+  blacklistUrls: [
+                // Chrome extensions
+                /extensions\//i,
+                /^chrome:\/\//i,
+                // Firefox extensions
+                /^resource:\/\//i,
+                // Ignore Google flakiness
+                /\/(gtm|ga|analytics)\.js/i,
+                // Ignore Jquery
+                /cdnjs\.cloudflare\.com\/ajax\/libs\/jquery\/3.4.1\/jquery.min\.js/i,
+                /cdnjs\.cloudflare\.com\/ajax\/libs\/jqueryui\/1.12.1\/jquery-ui.min\.js/i,
+            ],
+  sampleRate: 0.5,
+});
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="app.js"></script>
+<pre>
+  Demo filter libraries notifications using blacklistUrls
+</pre>
+<div class="test">dssgdsfgdsg</div>
+</body>
+</html>
